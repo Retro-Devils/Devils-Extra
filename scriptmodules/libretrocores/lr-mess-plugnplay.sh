@@ -39,10 +39,6 @@ function depends_lr-mess-lcd-handhelds() {
 	if [[ ! -f /opt/retropie/libretrocores/lr-mame/mamearcade_libretro.so]]; then cd $HOME/RetroPie-Setup && sudo ./retropie_packages.sh mame install_bin; fi
 }
 
-function sources_lr-mess-plugnplay() {
-	getDepends lr-mame lr-mess mame
-}
-
 function build_lr-mess-plugnplay() {
 	true
 }
