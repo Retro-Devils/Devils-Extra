@@ -87,8 +87,9 @@ qjoypad "bbc" &&
 _EOF_
     chmod +x "$md_inst/b-em-allegro4-multiload.sh"
     mkRomDir "bbcmicro"
-    addEmulator 0 "b-em-sh-version" "bbcmicro" "XINIT:/opt/retropie/emulators/b-em-bbc-sh/b-em %ROM%"
+    addEmulator 0 "b-em-version" "bbcmicro" "XINIT:/opt/retropie/emulators/b-em-bbc-sh/b-em %ROM%"
     addSystem "bbcmicro" "Acorn BBC micro" ".ssd .SSD"
 #
-    wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbc-layout-menu.sh -P $HOME/roms/bbcmicro/
+    wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbc-layout-menu.sh -P $HOME/roms/ports/
+    chmod +x "$HOME/roms/ports/bbc-layout-menu.sh"
 }
