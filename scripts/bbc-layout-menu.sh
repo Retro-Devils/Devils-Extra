@@ -11,6 +11,7 @@ local choice
       3 "LAYOUT 3: bbc-3 " \
       4 "LAYOUT 4: bbc-4 " \
       5 "LAYOUT 5: bbc-5 " \
+      + "----------------" \
       6 "LAYOUT MENU HELP"
       2>&1 >/dev/tty)
 
@@ -20,6 +21,7 @@ local choice
     3) layout3 ;;
     4) layout4 ;;
     5) layout5 ;;
+    +) none ;;
     6) layout-help ;;
     *) break ;;
     esac
