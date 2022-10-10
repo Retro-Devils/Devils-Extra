@@ -29,20 +29,20 @@ local choice
 }
 
 function layout1() {
-    cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
 <ctrl>c=close
 _EOF_
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
 qjoypad "bbc-1" &
 /opt/retropie/emulators/b-em-2-2/xbeeb -disc "\$1"|xdotool sleep 1 keydown Shift_L+F12 sleep 0.1 keyup Shift_L+F12
 _EOF_
-    chmod +x "/opt/retropie/emulators/b-em-2-2/xbeeb.sh"
+    sudo chmod +x "/opt/retropie/emulators/b-em-2-2/xbeeb.sh"
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xmaster.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xmaster.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
@@ -52,11 +52,11 @@ _EOF_
 }
 
 function layout2() {
-    cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
 <ctrl>c=close
 _EOF_
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
@@ -75,20 +75,20 @@ _EOF_
 }
 
 function layout3() {
-    cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
 <ctrl>c=close
 _EOF_
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
 qjoypad "bbc-3" &
 /opt/retropie/emulators/b-em-2-2/xbeeb -disc "\$1"|xdotool sleep 1 keydown Shift_L+F12 sleep 0.1 keyup Shift_L+F12
 _EOF_
-    chmod +x "/opt/retropie/emulators/b-em-2-2/xbeeb.sh"
+    sudo chmod +x "/opt/retropie/emulators/b-em-2-2/xbeeb.sh"
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xmaster.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xmaster.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
@@ -98,20 +98,20 @@ _EOF_
 }
 
 function layout4() {
-    cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-pico-pi/matchbox_key_shortcuts" << _EOF_
 <ctrl>c=close
 _EOF_
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xbeeb.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
 qjoypad "bbc-4" &
 /opt/retropie/emulators/b-em-2-2/xbeeb -disc "\$1"|xdotool sleep 1 keydown Shift_L+F12 sleep 0.1 keyup Shift_L+F12
 _EOF_
-    chmod +x "/opt/retropie/emulators/b-em-2-2/xbeeb.sh"
+    sudo chmod +x "/opt/retropie/emulators/b-em-2-2/xbeeb.sh"
 
-    cat >"/opt/retropie/emulators/b-em-2-2/xmaster.sh" << _EOF_
+    sudo cat >"/opt/retropie/emulators/b-em-2-2/xmaster.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig /opt/retropie/emulators/b-em-2-2/matchbox_key_shortcuts &
