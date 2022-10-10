@@ -13,7 +13,8 @@ local choice
       2>&1 >/dev/tty)
 
     case "$choice" in
-    1)cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
+    1)
+      cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
       #!/bin/bash
       function load_tape() {
       cassload=();cassload=( "quotedbl" "t" "a" "p" "e" "Return" "c" "h" "a" "i" "n" "at" "at" "Return" )
@@ -33,7 +34,8 @@ local choice
       [[ "\$2" == *.uef ]] && load_tape \$1 "\$2"
       [[ "\$2" == *.ssd ]] && load_disc \$1 "\$2"
       _EOF_ ;;
-    2)cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
+    2)
+      cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
       #!/bin/bash
       function load_tape() {
       cassload=();cassload=( "quotedbl" "t" "a" "p" "e" "Return" "c" "h" "a" "i" "n" "at" "at" "Return" )
@@ -53,7 +55,8 @@ local choice
       [[ "\$2" == *.uef ]] && load_tape \$1 "\$2"
       [[ "\$2" == *.ssd ]] && load_disc \$1 "\$2"
       _EOF_ ;;
-    2)cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
+    3)
+      cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
       #!/bin/bash
       function load_tape() {
       cassload=();cassload=( "quotedbl" "t" "a" "p" "e" "Return" "c" "h" "a" "i" "n" "at" "at" "Return" )
@@ -73,7 +76,8 @@ local choice
       [[ "\$2" == *.uef ]] && load_tape \$1 "\$2"
       [[ "\$2" == *.ssd ]] && load_disc \$1 "\$2"
       _EOF_ ;;
-    4)cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
+    4)
+      cat >"/opt/retropie/emulators/b-em-bbc-sh/b-em-allegro4-multiload.sh" << _EOF_
       #!/bin/bash
       function load_tape() {
       cassload=();cassload=( "quotedbl" "t" "a" "p" "e" "Return" "c" "h" "a" "i" "n" "at" "at" "Return" )
