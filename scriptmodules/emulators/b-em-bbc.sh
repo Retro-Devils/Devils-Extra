@@ -9,26 +9,26 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="b-em-bbc-sh"
-rp_module_desc="B-Em 2.2 BBC Emu SH Version"
+rp_module_id="b-em-bbc"
+rp_module_desc="B-Em 2.2 BBC Emu Controller Support"
 rp_module_help="\
 Use F11 for the GUI !\n\
 This Version only reads .sh scripts !\n\n\
-Supported ROMS/MEDIA : .sh .SH\n\
+Supported ROMS/MEDIA : .ssd .SSD\n\
 ROMS/MEDIA have to be in $romdir/bbcmicro\n\n\
 "
 rp_module_section="exp"
 rp_module_flags=""
 
-function depends_b-em-bbc-sh() {
+function depends_b-em-bbc() {
     getDepends xorg matchbox-window-manager automake liballegro4-dev zlib1g-dev libalut-dev libopenal-dev autotools-dev xdotool qjoypad
 }
 
-function sources_b-em-bbc-sh() {
+function sources_b-em-bbc() {
     downloadAndExtract "https://github.com/stardot/b-em/archive/263d2d44e53e593d1f51c0be9b9f404447fb33a3.zip" "$md_build"
 }
 
-function build_b-em-bbc-sh() {
+function build_b-em-bbc() {
     cd $md_build/b-em-263d2d44e53e593d1f51c0be9b9f404447fb33a3
     ./autogen.sh
     ./configure
@@ -36,13 +36,13 @@ function build_b-em-bbc-sh() {
     make -j4
 }
 
-function install_b-em-bbc-sh() {
+function install_b-em-bbc() {
     md_ret_files=(        
         'b-em-263d2d44e53e593d1f51c0be9b9f404447fb33a3/.'
     )
 }
 
-function configure_b-em-bbc-sh() {
+function configure_b-em-bbc() {
 
     cat >"$configdir/bbcmicro/b-em.cfg" << _EOF_
 video_resize = 1
