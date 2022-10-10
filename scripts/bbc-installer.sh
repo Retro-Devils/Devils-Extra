@@ -6,20 +6,33 @@ sleep 5
 echo "IF YOU WANNA CANCEL PLEASE PRESS CONTROL+C NOW"
 sleep 5
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scriptmodules/emulators/b-em-2-2.sh -P $HOME/RetroPie-Setup/scriptmodules/emulators/
-sleep 1
-wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbc-layout-menu.sh -P $HOME/RetroPie/roms/ports/
-sleep 5
+sleep 3
 echo "INSTALLER WILL NOW INSTALL B-EM 2.2 EMULATOR"
-sudo ./retropie_packages.sh b-em-2-2
+sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-2-2
 sleep 2
 echo "INSTALLER WILL NOW GRAB A BLANK QJOYPAD LAYOUT NAMED bbcmicro "
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbcmicro.lyt -P $HOME/.qjoypad/
 sleep 2
-echo "OPEN PIXEL DESKTOP THEN QJOYPAD TO EDIT bbcmicro LAYOUT"
+clear
+echo "THIS INSTALLER USES QJOYPAD FOR CONTROLLER SUPPORT"
 sleep 2
-echo "USE BBC LAYOUT MENU TO SELECT NEW LAYOUT"
-echo "YOU MUST HAVE/MADE LAYOUTS TO SWITCH TO/FROM"
-echo "LAYOUT NAMES AS FOLLOWS bbc-1,bbc-2,bbc-3,bbc-4"
-echo "PLEASE SEE LAYOUT MENU IN PORTS FOR MORE"
+echo "YOU WILL NOT HAVE CONTROLLER SUPPORT WITHOUT QJOYPAD!!!!!"
+sleep 2 
+echo "YOU WILL KEYBOARD SUPPORT OFF RIP"
+sleep 2 
+echo "HOW TO STEP QJOYPAD"
+sleep 2
+echo "OPEN PIXEL DESKTOP"
+sleep 2
+echo "CLICK START THEN QJOYPAD"
+sleep 2
+echo "THEN  QJOYPAD TRAY ICON"
+sleep 2
+echo "SELECT bbcmicro LAYOUT"
+sleep 2 
+echo "THEN CLICK QUICK SET TO SET YOUR BUTTONS"
+sleep 2 
+echo "PRESS YOUR CONTROLLER BUTTON THEN KEYBOARD BUTTON. REPEAT AS NEEDED"
+sleep 2 
 sleep 10
 echo "THANKS FOR INSTALLING ENJOY"
