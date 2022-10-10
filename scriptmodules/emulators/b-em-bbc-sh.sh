@@ -90,5 +90,5 @@ _EOF_
     addEmulator 0 "b-em-sh-version" "bbcmicro" "XINIT:/opt/retropie/emulators/b-em-bbc-sh/b-em %ROM%"
     addSystem "bbcmicro" "Acorn BBC micro" ".sh .SH"
 #
-    wget
+    wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbc-layout-menu.sh -P $HOME/roms/bbcmicro/
 }
