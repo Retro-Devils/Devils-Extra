@@ -10,7 +10,7 @@
 #
 
 rp_module_id="b-em-bbc-sh"
-rp_module_desc="B-Em 2.2 BBC emu SH Version"
+rp_module_desc="B-Em 2.2 BBC Emu SH Version"
 rp_module_help="\
 Use F11 for the GUI !\n\
 This Version only reads .sh scripts !\n\n\
@@ -46,9 +46,9 @@ function configure_b-em-bbc-sh() {
 
     cat >"$configdir/bbcmicro/b-em.cfg" << _EOF_
 video_resize = 1
-fullborders = 0
+fullborders = 1
 fasttape = 1
-fullscreen = 1
+full-screen = 1
 _EOF_
     ln -s "$configdir/bbcmicro/b-em.cfg" "$md_inst/b-em.cfg"
 #
@@ -62,7 +62,7 @@ _EOF_
 
     cat >"$md_inst/matchbox_key_shortcuts" << _EOF_
 <ctrl>c=close
-<ctrl>f=fullscreen
+<ctrl>f=full-screen
 _EOF_
 
     mkRomDir "bbcmicro"
