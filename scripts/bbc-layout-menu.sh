@@ -136,6 +136,7 @@ HOW DO I USE IT ?
      - Enjoy!
 WHERE DID THIS COME FROM?
      - We Retro Devils made this from stratch to enjoy BBC." 0 0
+}
      
 
 bbc-controller-layout
