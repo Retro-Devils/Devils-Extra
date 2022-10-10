@@ -130,7 +130,7 @@ HOW DO I USE IT ?
      - Open qjoypad
      - Click qjoypad icon in tray.
      - Add a new layout.
-     - Name bbc-1, bbc-2, bbc-3 or bbc-4.
+     - Name bbc-1, bbc-2, bbc-3, bbc-4, or bbc-5
      - Map your buttons to keyboard .
      - Save your new layout .
      - Enjoy!
