@@ -10,7 +10,7 @@
 #
 
 rp_module_id="b-em-2-2"
-rp_module_desc="B Em 2.2 BBC Micro Emu. With controller support. \"
+rp_module_desc="B Em 2.2 BBC Micro Emu. With controller support."
 rp_module_help="ROM Extensions: .ssd\n\nCopy your BBC Micro games to $romdir/bbcmicro\n\n- use F11/WIN-key for the gui\n- use qjoypad to map controls\n- use ctrl+c to exit the emulator\n"
 rp_module_section="exp"
 rp_module_flags=""
