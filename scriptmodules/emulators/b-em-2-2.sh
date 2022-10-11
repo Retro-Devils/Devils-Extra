@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function depends_b-em-2-2() {
-    getDepends xorg matchbox-window-manager build-essential cmake libdrm-dev libx11-xcb-dev libxcb-dri3-dev libepoxy-dev liballegro5-dev ruby libasound2-dev xdotool
+    getDepends xorg matchbox-window-manager build-essential cmake libdrm-dev libx11-xcb-dev libxcb-dri3-dev libepoxy-dev liballegro5-dev ruby libasound2-dev xdotool qjoypad
 }
 
 function sources_b-em-2-2() {
@@ -75,5 +75,5 @@ _EOF_
     mkRomDir "bbcmicro"
     addEmulator 1 "xbeeb" "bbcmicro" "XINIT:$md_inst/xbeeb.sh %ROM%"
     addEmulator 0 "xmaster" "bbcmicro" "XINIT:$md_inst/xmaster.sh %ROM%"
-    addSystem "bbcmicro" "BBC Micro" ".ssd"
+    addSystem "bbcmicro" "BBC Micro" ".ssd .uef"
 }
