@@ -32,13 +32,6 @@ rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/mame/master/L
 rp_module_section="exp"
 rp_module_flags=""
 
-function depends_lr-mess-lcd-handhelds() {
-	local _mess=$(dirname "$md_inst")/lr-mess/mess_libretro.so
-	if [[ ! -f "$_mess" ]]; then cd $HOME/RetroPie-Setup && sudo ./retropie_packages.sh lr-mess install_bin; fi
-	if [[ ! -f /home/pi/.mame/mame.ini ]]; then cd $HOME/RetroPie-Setup && sudo ./retropie_packages.sh lr-mame install_bin; fi
-	if [[ ! -f /opt/retropie/libretrocores/lr-mame/mamearcade_libretro.so]]; then cd $HOME/RetroPie-Setup && sudo ./retropie_packages.sh mame install_bin; fi
-}
-
 function build_lr-mess-plugnplay() {
 	true
 }
