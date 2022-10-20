@@ -8,7 +8,7 @@ sleep 5
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scriptmodules/emulators/b-em-2.2.sh -P $HOME/RetroPie-Setup/scriptmodules/emulators/
 sleep 3
 echo "INSTALLER WILL NOW INSTALL B-EM 2.2 EMULATOR"
-sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-2.2
+sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-2-2
 sleep 2
 echo "INSTALLER WILL NOW GRAB A BLANK QJOYPAD LAYOUT NAMED bbcmicro "
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbcmicro.lyt -P $HOME/.qjoypad/
