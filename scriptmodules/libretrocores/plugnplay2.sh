@@ -80,5 +80,5 @@ function configure_lr-mess-plugnplay() {
 	addEmulator 1 "$md_id" "$_system" "$_script $_retroarch_bin $_mess $_config $_system $biosdir -cass %ROM%"
 
 	# add system to es_systems.cfg
-	addSystem "$_system" "Plug N Play" ".cas"	
+	addSystem "$_system" "Plug N Play" ".zip"	
 }
