@@ -10,7 +10,7 @@
 #
 
 rp_module_id="lr-mess-plugnplay"
-rp_module_name="Plig N Play"
+rp_module_name="Plug N Play"
 rp_module_ext=".zip"
 rp_module_desc="MESS emulator ($rp_module_name) - MESS Port for libretro"
 rp_module_help="ROM Extensions: $rp_module_ext\n\n
@@ -23,7 +23,7 @@ rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/mame/master/L
 rp_module_section="exp"
 rp_module_flags=""
 
-function depends_lr-mess-p2000t() {
+function depends_lr-mess-plugnplay() {
 	local _mess=$(dirname "$md_inst")/lr-mess/mess_libretro.so
 	if [[ ! -f "$_mess" ]]; then
 		printMsgs dialog "cannot find '$_mess' !\n\nplease install 'lr-mess' package."
@@ -46,7 +46,7 @@ function install_lr-mess-plugnplay() {
 function configure_lr-mess-plugnplay() {
 	local _mess=$(dirname "$md_inst")/lr-mess/mess_libretro.so
 	local _retroarch_bin="$rootdir/emulators/retroarch/bin/retroarch"
-	local _system="p2000t"
+	local _system="plugnplay"
 	local _config="$configdir/$_system/retroarch.cfg"
 	local _add_config="$_config.add"
 	local _custom_coreconfig="$configdir/$_system/custom-core-options.cfg"
