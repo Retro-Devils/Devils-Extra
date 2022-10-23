@@ -54,107 +54,33 @@ function configure_lr-mess-plugnplay() {
 	local _basename_coreconfig="$configdir/$_system/retroarch-core-options.cfg.basename"
 	local _add_config_basename="$_config.basename"
 
-if [[ arcade == non-arcade ]];then
-	#plain command
-	#(used for loading .cmd files, amongst others)
-	addEmulator 0 "lr-mess-cmd" "$_system" "$_retroarch_bin --config $_config -v -L $_mess %ROM%"
-	
-	#plain commands
-	#works on the pi
-	#using single-quotes for loading lr-mess options
-	#adding 2 rompaths if available 
-	#lr-mess option -cfg_directory is not added, it should use the propper directory
-	#
-	#in order to save files we need to add the savepaths to retroarch as options
-	#"-c -ui_active etc" is placed before "-rompath" and a / is added after the last rompath , this way the options are not added in the savestate filename
-	#only issue after is that the savestate filename still contains 1 space in the beginning of the filename and double quotes
-	#to fix this issue of double quotes the basename can be single quoted to remove them in the filename (we still have 1 space !) 
-	#
-	addEmulator 0 "lr-mess-basename" "$_system" "$_retroarch_bin --config $_config --appendconfig $_add_config_basename -S /home/pi/RetroPie/roms/$_system -s /home/pi/RetroPie/roms/$_system -v -L $_mess_core 'mame  -cfg_directory $configdir/$_system/lr-mess -c -ui_active -rompath /home/pi/RetroPie/BIOS/mame;/home/pi/RetroPie/roms/$_system/ '%BASENAME%''"
-	addEmulator 0 "lr-mess-basename-autoframeskip" "$_system" "$_retroarch_bin --config $_config --appendconfig $_add_config_basename -S /home/pi/RetroPie/roms/$_system -s /home/pi/RetroPie/roms/$_system -v -L $_mess_core 'mame  -cfg_directory $configdir/$_system/lr-mess -c -ui_active -autoframeskip -rompath /home/pi/RetroPie/BIOS/mame;/home/pi/RetroPie/roms/$_system/ '%BASENAME%''"
-	addEmulator 0 "lr-mess-basename-frameskip_10" "$_system" "$_retroarch_bin --config $_config --appendconfig $_add_config_basename -S /home/pi/RetroPie/roms/$_system -s /home/pi/RetroPie/roms/$_system -v -L $_mess_core 'mame  -cfg_directory $configdir/$_system/lr-mess -c -ui_active -frameskip 10 -rompath /home/pi/RetroPie/BIOS/mame;/home/pi/RetroPie/roms/$_system/ '%BASENAME%''"
-	
-	#tests for basename loaders using the run_mess script
-	#works ok,but the .cmd files and savestate files are saved in /home/pi
-	#-> turned off <-
-	#(can be used, with adapted run_mess script, for .cmd file generation if needed)
-	#addEmulator 0 "lr-run_mess-basename" "$_system" "$_script $_retroarch_bin $_mess_core $_config  $biosdir/mame\;/home/pi/RetroPie/roms/$_system -c -ui_active %BASENAME%"
-	#addEmulator 0 "lr-run_mess-basename-autoframeskip" "$_system" "$_script $_retroarch_bin $_mess_core $_config  $biosdir/mame\;/home/pi/RetroPie/roms/$_system -c -ui_active -autoframeskip %BASENAME%"
-	#addEmulator 0 "lr-run_mess-basename-frameskip_10" "$_system" "$_script $_retroarch_bin $_mess_core $_config  $biosdir/mame\;/home/pi/RetroPie/roms/$_system -c -ui_active -frameskip 10 %BASENAME%"
-else
-	#use lr-mame instead of lr-mess
-	addEmulator 0 "lr-mame-basename" "$_system" "$_retroarch_bin --config $_config --appendconfig $_add_config_basename -S /home/pi/RetroPie/roms/$_system -s /home/pi/RetroPie/roms/$_system -v -L $_mame_core 'mame  -cfg_directory $configdir/$_system/lr-mame -c -ui_active -rompath /home/pi/RetroPie/BIOS/mame;/home/pi/RetroPie/roms/$_system/ '%BASENAME%''"
-	addEmulator 0 "lr-mame-basename-autoframeskip" "$_system" "$_retroarch_bin --config $_config --appendconfig $_add_config_basename -S /home/pi/RetroPie/roms/$_system -s /home/pi/RetroPie/roms/$_system -v -L $_mame_core 'mame  -cfg_directory $configdir/$_system/lr-mame -c -ui_active -autoframeskip -rompath /home/pi/RetroPie/BIOS/mame;/home/pi/RetroPie/roms/$_system/ '%BASENAME%''"
-	addEmulator 0 "lr-mame-basename-frameskip_10" "$_system" "$_retroarch_bin --config $_config --appendconfig $_add_config_basename -S /home/pi/RetroPie/roms/$_system -s /home/pi/RetroPie/roms/$_system -v -L $_mame_core 'mame  -cfg_directory $configdir/$_system/lr-mame -c -ui_active -frameskip 10 -rompath /home/pi/RetroPie/BIOS/mame;/home/pi/RetroPie/roms/$_system/ '%BASENAME%''"
-fi
+	# create retroarch configuration
+	ensureSystemretroconfig "$_system"
 
-	addEmulator 0 "mame-basename" "$_system" "/opt/retropie/emulators/mame/mame -rompath /home/pi/RetroPie/BIOS/mame\;/home/pi/RetroPie/roms/$_system -v -c -ui_active -statename $_system/%BASENAME%  $([[ $_system == *90º ]]&&echo "-rol") %BASENAME%"
-	addEmulator 0 "mame-basename-autoframeskip" "$_system" "/opt/retropie/emulators/mame/mame -rompath /home/pi/RetroPie/BIOS/mame\;/home/pi/RetroPie/roms/$_system -v -c -ui_active -statename $_system/%BASENAME% -autoframeskip  $([[ $_system == *90º ]]&&echo "-rol") %BASENAME%"
-	addEmulator 0 "mame-basename-frameskip_10" "$_system" "/opt/retropie/emulators/mame/mame -rompath /home/pi/RetroPie/BIOS/mame\;/home/pi/RetroPie/roms/$_system -v -c -ui_active -statename $_system/%BASENAME% -frameskip 10  $([[ $_system == *90º ]]&&echo "-rol") %BASENAME%"
+	# ensure it works without softlists, using a custom per-fake-core config
+        iniConfig " = " "\"" "$_custom_coreconfig"
+        iniSet "mame_softlists_enable" "disabled"
+	iniSet "mame_softlists_auto_media" "disabled"
+	iniSet "mame_boot_from_cli" "disabled"
 
-	# add system to es_systems.cfg
-	#the line used by @valerino didn't work for the original RetroPie-setup 
-	#therefore the information is added in a different way
-	#the system name is also used as description because, for example, handhelds are generated with game system names
-	addSystem "$_system" "plugnplay" ".cmd .zip .7z .7z .cue .fba .iso .zip .cdi .chd .gdi .sh"
-
-	#sort the emulators.cfg file
-	sort -o $_emulatorscfg $_emulatorscfg
-	#if containing a default line then remember the default line,
-	#delete it, remove the empty line and put it back at the end of the file
-	cat $_emulatorscfg|while read line
-	do if [[ $line == default* ]]; then 
-	sed -i "s/$line//g" $_emulatorscfg
-	#https://stackoverflow.com/questions/16414410/delete-empty-lines-using-sed
-	sed -i -r "/^\s*$/d" $_emulatorscfg
-	echo $line >> $_emulatorscfg
-	fi
-	done
-	chown $user:$user "$_emulatorscfg"
-	
-	# using a custom per-fake-core config for basename loaders using softlist
-	iniConfig " = " "\"" "$_basename_coreconfig"
-	iniSet "mame_boot_from_cli" "enabled"
-        iniSet "mame_mouse_enable" "enabled"
-
-	# this will get loaded too via --appendconfig
-	iniConfig " = " "\"" "$_add_config_basename"
-	iniSet "core_options_path" "$_basename_coreconfig"
-	[[ $_system == *90º ]]&&iniSet "screen_orientation" "3"
+	# this will get loaded too via --append_config
+	iniConfig " = " "\"" "$_add_config"
+	iniSet "core_options_path" "$_custom_coreconfig"
+	#iniSet "save_on_exit" "false"
 
 	# set permissions for configurations
- 	chown $user:$user "$_basename_coreconfig" 
- 	chown $user:$user "$_add_config_basename" 
+ 	chown $user:$user "$_custom_coreconfig" 
+ 	chown $user:$user "$_add_config" 
 
-	#added for test
-	local _add_config="$_config.add"
-	local _custom_coreconfig="$configdir/$_system/custom-core-options.cfg"
-	local _script="$scriptdir/scriptmodules/run_mess.sh"
-    
+	# setup rom folder
 	mkRomDir "$_system"
-	ensureSystemretroconfig "$_system"
-    
-	echo "enable cheats in $configdir/all/retroarch-core-options.cfg"
-	iniConfig " = " "\"" "$configdir/all/retroarch-core-options.cfg"
-	iniSet "mame_cheats_enable" "enabled"
-	chown $user:$user "$configdir/all/retroarch-core-options.cfg"
 
-	echo "enable cheats for mame in /opt/retropie/configs/mame/mame.ini"    
-	iniConfig " " "" "$_mameini"
-	iniSet "cheatpath"  "$romdir/mame/cheat"
-	iniSet "cheat" "1"
-	chown $user:$user "$_mameini"
+	# ensure run_mess.sh script is executable
+	chmod 755 "$_script"
 
-	echo "enable translation ai_service for RetroArch in $configdir/all/retroarch.cfg"
-	iniConfig " = " "\"" "$configdir/all/retroarch.cfg"
-	iniSet "ai_service_enable" "true"
-	iniSet "ai_service_mode" "0"
-	iniSet "ai_service_pause" "true"
-	iniSet "ai_service_source_lang" "0"
-	iniSet "ai_service_target_lang" "1"
-	iniSet "ai_service_url" "http://ztranslate.net/service?api_key=HEREISMYKEY"
-	iniSet "input_ai_service" "t"
-	iniSet "#input_ai_service_btn" "11"
-	chown $user:$user "$configdir/all/retroarch.cfg"
+	# add the emulators.cfg as normal, pointing to the above script
+	addEmulator 1 "$md_id" "$_system" "$_script $_retroarch_bin $_mess $_config apple1 $biosdir -cass %ROM%"
+
+	# add system to es_systems.cfg as normal
+	addSystem "$_system" "$md_name" "$md_ext"
 }
-
