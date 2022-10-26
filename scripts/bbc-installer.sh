@@ -11,15 +11,15 @@ echo "INSTALLER WILL NOW INSTALL B-EM 2.2 EMULATOR"
 sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-2-2
 sleep 2
 echo "INSTALLER WILL NOW GRAB A BLANK QJOYPAD LAYOUT NAMED bbcmicro "
-wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbcmicro.lyt -P $HOME/.qjoypad/
+wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbcmicro.lyt -P $HOME/.qjoypad3/
 sleep 2
 dialog  --sleep 1 --title "BBC INSTALLER INFO" --msgbox " 
 THIS INSTALLER USES QJOYPAD FOR CONTROLLER SUPPORT
-echo YOU WILL KEYBOARD SUPPORT OFF RIP
+YOU WILL KEYBOARD SUPPORT OFF RIP
 <------------------------------------------------>
 HOW TO STEP QJOYPAD
 OPEN PIXEL DESKTOP
-CLICK START THEN QJOYPADTHEN
+CLICK START THEN QJOYPAD THEN
 QJOYPAD TRAY ICON
 SELECT bbcmicro LAYOUT
 THEN CLICK QUICK SET TO SET YOUR BUTTONS
