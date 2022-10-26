@@ -68,3 +68,5 @@ PLEASE ENJOY" 0 0
 function bbc-info() {
 echo "blah blah"
 }
+
+bbc-install-menu
