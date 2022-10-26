@@ -41,6 +41,9 @@ function bbc-install-menu() {
 }
 
 function install-bbc() {
+if [ -f "$HOME/RetroPie-Setup/scriptmodules/emulators/b-em-2.2.sh" ]; then sudo rm $HOME/RetroPie-Setup/scriptmodules/emulators/b-em-2.2.sh; fi
+if [ -f "$HOME/RetroPie-Setup/scriptmodules/extras/Devils-Extras/emulators/b-em-2.2.sh" ]; then sudo rm $HOME/RetroPie-Setup/scriptmodules/extras/Devils-Extras/emulators/b-em-2.2.sh; fi
+if [ -f "$HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh" ]; then sudo rm $HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh; fi
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scriptmodules/emulators/b-em-2.2.sh -P $HOME/RetroPie-Setup/scriptmodules/emulators/
 sleep 3
 sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-2-2
