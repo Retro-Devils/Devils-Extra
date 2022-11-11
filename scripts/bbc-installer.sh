@@ -46,7 +46,7 @@ if [ -f "$HOME/RetroPie-Setup/scriptmodules/extras/Devils-Extras/emulators/b-em-
 if [ -f "$HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh" ]; then sudo rm $HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh; fi
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scriptmodules/emulators/b-em-2.2.sh -P $HOME/RetroPie-Setup/scriptmodules/emulators/
 sleep 3
-sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-2-2
+sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-pico-pi
 sleep 2
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbcmicro.lyt -P $HOME/.qjoypad3/
 sleep 2
@@ -62,14 +62,17 @@ SELECT bbcmicro LAYOUT
 THEN CLICK QUICK SET TO SET YOUR BUTTONS
 PRESS YOUR CONTROLLER BUTTON THEN KEYBOARD BUTTON. REPEAT AS NEEDED" 0 0
 
-dialog  --sleep 1 --title "BBC INSTALLER INFO" --msgbox " 
+dialog  --sleep 1 --title "BBC INSTALLER EXIT INFO" --msgbox " 
 THANKS FOR INSTALLING
 REPORT ERRORS TO DEVILS
 PLEASE ENJOY" 0 0
 }
 
 function bbc-info() {
-echo "blah blah"
+dialog  --sleep 1 --title "BBC MICRO INFO" --msgbox " 
+BBC Micro INFO 
+The British Broadcasting Corporation Microcomputer System, or BBC Micro, is a series of microcomputers &
+associated peripherals designed and built by Acorn Computers in the 1980s for the BBC Computer Literacy Project." 0 0
 }
 
 bbc-install-menu
