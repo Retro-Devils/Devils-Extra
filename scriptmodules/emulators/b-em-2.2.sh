@@ -9,24 +9,24 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="b-em-2-2"
-rp_module_desc="B Em 2.2 BBC Micro Emu. With controller support."
-rp_module_help="ROM Extensions: .ssd\n\nCopy your BBC Micro games to $romdir/bbcmicro\n\n- use F11/WIN-key for the gui\n- use qjoypad to map controls\n- use ctrl+c to exit the emulator\n"
+rp_module_id="b-em-pico-pi"
+rp_module_desc="BBC Micro Emulator / the b-em-pico fork of kilograham"
+rp_module_help="ROM Extensions: .ssd\n\nCopy your BBC Micro games to $romdir/bbcmicro\n\n- use F11/WIN-key for the gui\n- use shift+F12 to run the disc\n- use ctrl+c to exit the emulator\n"
 rp_module_section="exp"
 rp_module_flags=""
 
-function depends_b-em-2-2() {
-    getDepends xorg matchbox-window-manager build-essential cmake libdrm-dev libx11-xcb-dev libxcb-dri3-dev libepoxy-dev liballegro5-dev ruby libasound2-dev xdotool qjoypad
+function depends_b-em-pico-pi() {
+    getDepends xorg matchbox-window-manager build-essential cmake libdrm-dev libx11-xcb-dev libxcb-dri3-dev libepoxy-dev liballegro5-dev ruby libasound2-dev xdotool
 }
 
-function sources_b-em-2-2() {
+function sources_b-em-pico-pi() {
     downloadAndExtract "https://github.com/raspberrypi/pico-sdk/archive/master.zip" "$md_build"
     downloadAndExtract "https://github.com/raspberrypi/pico-extras/archive/master.zip" "$md_build"
     #downloadAndExtract "https://github.com/kilograham/b-em/archive/pico.zip" "$md_build"
     downloadAndExtract "https://github.com/FollyMaddy/b-em/archive/pico.zip" "$md_build"
 }
 
-function build_b-em-2-2() {
+function build_b-em-pico-pi() {
     rm -r $md_build/b-em-pico/pi_build
     mkdir $md_build/b-em-pico/pi_build
     cd $md_build/b-em-pico/pi_build
@@ -42,14 +42,14 @@ function build_b-em-2-2() {
     make -j4
 }
 
-function install_b-em-2-2() {
+function install_b-em-pico-pi() {
     md_ret_files=(        
         'b-em-pico/pi_build/src/pico/xmaster'
         'b-em-pico/pi_build/src/pico/xbeeb'
     )
 }
 
-function configure_b-em-2-2() {
+function configure_b-em-pico-pi() {
     cat >"$md_inst/matchbox_key_shortcuts" << _EOF_
 <ctrl>c=close
 _EOF_
@@ -58,7 +58,7 @@ _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig $md_inst/matchbox_key_shortcuts &
-qjoypad "bbcmicro" &&
+qjoypa "bbcmicro" &
 /opt/retropie/emulators/b-em-pico-pi/xbeeb -disc "\$1"|xdotool sleep 1 keydown Shift_L+F12 sleep 0.1 keyup Shift_L+F12
 _EOF_
     chmod +x "$md_inst/xbeeb.sh"
@@ -67,13 +67,13 @@ _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no -use_cursor no -kbdconfig $md_inst/matchbox_key_shortcuts &
-qjoypad "bbcmicro" &&
+qjoypad "bbcmicro" &
 /opt/retropie/emulators/b-em-pico-pi/xmaster -disc "\$1"|xdotool sleep 1 keydown Shift_L+F12 sleep 0.1 keyup Shift_L+F12
 _EOF_
     chmod +x "$md_inst/xmaster.sh"
 
     mkRomDir "bbcmicro"
-    addEmulator 1 "xbeeb-CS" "bbcmicro" "XINIT:$md_inst/xbeeb.sh %ROM%"
-    addEmulator 0 "xmaster-CS" "bbcmicro" "XINIT:$md_inst/xmaster.sh %ROM%"
+    addEmulator 1 "xbeeb" "bbcmicro" "XINIT:$md_inst/xbeeb.sh %ROM%"
+    addEmulator 0 "xmaster" "bbcmicro" "XINIT:$md_inst/xmaster.sh %ROM%"
     addSystem "bbcmicro" "BBC Micro" ".ssd"
 }
