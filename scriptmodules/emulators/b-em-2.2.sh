@@ -73,7 +73,7 @@ _EOF_
     chmod +x "$md_inst/xmaster.sh"
 
     mkRomDir "bbcmicro"
-    addEmulator 1 "xbeeb" "bbcmicro" "XINIT:$md_inst/xbeeb.sh %ROM%"
-    addEmulator 0 "xmaster" "bbcmicro" "XINIT:$md_inst/xmaster.sh %ROM%"
+    addEmulator 1 "xbeeb-qjoy" "bbcmicro" "XINIT:$md_inst/xbeeb.sh %ROM%"
+    addEmulator 0 "xmaster-qjoy" "bbcmicro" "XINIT:$md_inst/xmaster.sh %ROM%"
     addSystem "bbcmicro" "BBC Micro" ".ssd"
 }
