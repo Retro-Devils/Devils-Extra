@@ -43,7 +43,7 @@ if [ -f "$HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh" ]; the
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scriptmodules/emulators/b-em-2.2.sh -P $HOME/RetroPie-Setup/scriptmodules/emulators/
 chmod 777 $HOME/RetroPie-Setup/scriptmodules/emulators/b-em-2.2.sh
 sleep 3
-sudo $HOME/RetroPie-Setup//retropie_packages.sh b-em-pico-pi
+sudo $HOME/RetroPie-Setup/retropie_packages.sh b-em-pico-pi
 sleep 2
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scripts/bbcmicro.lyt -P $HOME/.qjoypad3/
 sleep 2
