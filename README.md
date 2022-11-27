@@ -28,7 +28,7 @@ command line with :
 
 cd ~
 
-cd RetroPie-Setup/
+cd $HOME/RetroPie-Setup/
 
 sudo ./retropie_setup.sh
 
@@ -39,7 +39,7 @@ The following commands updates your Raspberry Pi to the latest repo directly to 
 
 cd ~
 
-cd RetroPie-Setup/ext/Devils-Extra/
+cd $HOME/RetroPie-Setup/ext/Devils-Extra/
 
 git pull origin
 
