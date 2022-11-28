@@ -42,7 +42,7 @@ if [ -f "$HOME/RetroPie-Setup/scriptmodules/extras/Devils-Extras/emulators/b-em-
 if [ -f "$HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh" ]; then sudo rm $HOME/RetroPie-Setup/scriptmodules/emulators/extras/b-em-2.2.sh; fi
 wget https://raw.githubusercontent.com/Retro-Devils/Devils-Extra/main/scriptmodules/emulators/b-em-2.2.sh -P $HOME/RetroPie-Setup/scriptmodules/emulators/
 chmod 777 $HOME/RetroPie-Setup/scriptmodules/emulators/b-em-2.2.sh
-sudo chmod -R sudo chmod 777 /opt/retropie/emulators/b-em-allegro4
+sudo chmod 777 -R /opt/retropie/emulators/b-em-allegro4
 sleep 3
 sudo $HOME/RetroPie-Setup/retropie_packages.sh b-em-pico-pi
 sleep 2
