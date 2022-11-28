@@ -51,7 +51,7 @@ function install_b-em-pico-pi() {
 
 function configure_b-em-pico-pi() {
     cat >"$md_inst/matchbox_key_shortcuts" << _EOF_
-<ctrl>c=close
+<esc>=close
 _EOF_
 
     cat >"$md_inst/xbeeb.sh" << _EOF_
